@@ -1,10 +1,10 @@
 node {
-    stage('Code Clean') { 
-	
-        sh 'mvn clean'
-    }
 	stage('Code Clone') { 
         git 'https://github.com/kartikeyapro/ks.git' 
+    }   
+   stage('Code Clean') { 
+	
+        sh 'mvn clean'
     }
     stage('Maven Validate ') {
       sh 'mvn validate'
