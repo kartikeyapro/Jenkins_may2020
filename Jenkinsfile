@@ -11,7 +11,7 @@ pipeline {
             git 'https://github.com/kartikeyapro/ks.git'    
             }
 			}
-			}
+			
    
         stage('maven version') {
             steps {
