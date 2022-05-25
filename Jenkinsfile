@@ -9,23 +9,31 @@ pipeline {
         stage('git clone') {
             steps {
             git 'https://github.com/kartikeyapro/ks.git'    
-            }}}
+            }
+			}
+			}
     stages {
         stage('maven version') {
             steps {
 				sh 'mvn --version' 
-            }}}
+            }
+			}
+			}
 
     stages {
         stage('mvn clean') {
             steps {
                sh 'mvn clean'
-            }   }}     
+            }  
+			}
+			}     
     stages {
         stage('mvn validate') {
             steps {
                sh 'mvn validate'
-            }}}
+            }
+			}
+			}
 	stages {
         stage('mvn compile') {
             steps {
