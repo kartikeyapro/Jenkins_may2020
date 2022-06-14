@@ -61,11 +61,11 @@ pipeline {
 				sh 'mvn deploy'
             }				
 	}
-	    stage('Upload to AWS') {
+	      stage('Upload to AWS') {
               steps {
                   withAWS(region:'us-east-1',credentials:'AWSCRE') {
                   sh 'echo "Uploading content with AWS creds"'
-                      s3Upload(workingDir:'target', target/*.war', bucket:'ksstore')
+                      s3Upload(workingDir:'target', 'target/*.war', bucket:'ksstore')
                   }
               }
          }
