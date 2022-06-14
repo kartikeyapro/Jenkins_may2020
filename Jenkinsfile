@@ -65,8 +65,8 @@ pipeline {
               steps {
                   withAWS(region:'us-east-1',credentials:'AWSCRE') {
                   sh 'echo "Uploading content with AWS creds"'
-                      s3Upload(workingDir:'target', 'target/*.war', bucket:'ksstore')
-                  }
+		      s3Upload(bucket:"ksstore", path:'path/to/targetFolder/', includePathPattern:'**/*', workingDir:'targer', excludePathPattern:'**/*.war')
+                                        }
               }
          }
 }	
