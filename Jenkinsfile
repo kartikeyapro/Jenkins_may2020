@@ -67,5 +67,6 @@ pipeline {
                 s3Upload(bucket:"ksstore", workingDir:'target', target/*.war'); // pick your jar or whatever you need
             }
         }
+	}
 }	
 }
