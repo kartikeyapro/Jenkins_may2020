@@ -61,12 +61,13 @@ pipeline {
 				sh 'mvn deploy'
             }				
 	}
-	    stage('Release to aws') {
-        steps {
-            withAWS(region:'us-east-1', credentials:'ksstore'){
-                s3Upload(bucket:"ksstore", workingDir:'target', target/*.war'); // pick your jar or whatever you need
-            }
-        }
-	}
+	    stage('Upload to AWS') {
+              steps {
+                  withAWS(region:'us-east-1',credentials:'AWSCRE') {
+                  sh 'echo "Uploading content with AWS creds"'
+                      s3Upload(workingDir:'target', target/*.war', bucket:'ksstore')
+                  }
+              }
+         }
 }	
 }
